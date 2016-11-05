@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script
-            src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous">
-    </script>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous">
+  </script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 
     <script src="js/pdf.js"></script>
@@ -23,138 +19,223 @@
 </head>
 <body>
 <div class="container">
-    <div id="pdfOuter" class="col-sm-8">
+    <div id="pdfOuter" class="col-lg-6">
         <canvas id="the-canvas"/>
     </div>
 
-    <div id="comments" class="col-sm-4">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-white post panel-shadow">
-                    <div class="post-heading">
-                        <div class="pull-left image">
-                            <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar"
-                                 alt="user profile image">
-                        </div>
-                        <div class="pull-left meta">
-                            <div class="title h5">
-                                <a href="#"><b>Ryan Haywood</b></a>
-                                made a post.
-                            </div>
-                            <h6 class="text-muted time">1 minute ago</h6>
-                        </div>
-                    </div>
-                    <div class="post-description">
-                        <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css
-                            hmtl js framework. Codes for developers and web designers</p>
-                        <div class="stats">
-                            <a href="#" class="btn btn-default stat-item">
-                                <i class="fa fa-thumbs-up icon"></i>2
-                            </a>
-                            <a href="#" class="btn btn-default stat-item">
-                                <i class="fa fa-thumbs-down icon"></i>12
-                            </a>
+  <div id="right_section" class="col-lg-6">
+    <div class="col-lg-12">
+    <div id="page_version_bar" class="row panel panel-white post panel-shadow" style="padding:15px">
+      <div class="col-lg-12">
+        <div class="col-lg-4">
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="panel panel-white post panel-shadow">
-                    <div class="post-heading">
-                        <div class="pull-left image">
-                            <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar"
-                                 alt="user profile image">
-                        </div>
-                        <div class="pull-left meta">
-                            <div class="title h5">
-                                <a href="#"><b>Ryan Haywood</b></a>
-                                made a post.
-                            </div>
-                            <h6 class="text-muted time">1 minute ago</h6>
-                        </div>
-                    </div>
-                    <div class="post-description">
-                        <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css
-                            hmtl js framework. Codes for developers and web designers</p>
-                        <div class="stats">
-                            <a href="#" class="btn btn-default stat-item">
-                                <i class="fa fa-thumbs-up icon"></i>2
-                            </a>
-                            <a href="#" class="btn btn-default stat-item">
-                                <i class="fa fa-thumbs-down icon"></i>12
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <div class="btn-group">
+  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Document Version<span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    ...
+  </ul>
+</div>
         </div>
-        <div class="row">
+          <div class="col-lg-8">
             <div class="col-lg-12">
-                <div class="panel panel-white post panel-shadow">
-                    <div class="post-heading">
-                        <div class="pull-left image">
-                            <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar"
-                                 alt="user profile image">
-                        </div>
-                        <div class="pull-left meta">
-                            <div class="title h5">
-                                <a href="#"><b>Ryan Haywood</b></a>
-                                made a post.
-                            </div>
-                            <h6 class="text-muted time">1 minute ago</h6>
-                        </div>
-                    </div>
-                    <div class="post-description">
-                        <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css
-                            hmtl js framework. Codes for developers and web designers</p>
-                        <div class="stats">
-                            <a href="#" class="btn btn-default stat-item">
-                                <i class="fa fa-thumbs-up icon"></i>2
-                            </a>
-                            <a href="#" class="btn btn-default stat-item">
-                                <i class="fa fa-thumbs-down icon"></i>12
-                            </a>
+            <div class="col-lg-2">
+              <a href="#" class="btn btn-default stat-item">
+                  <i class="fa fa-arrow-left icon"></i>
+              </a>
+            </div>
+            <div class="col-lg-8">
+    <button class="col-lg-offset-3 btn btn-default btn-sm dropdown-toggle" style="margin-top:2%;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Page Number <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      ...
+    </ul>
+  </div>
 
-                        </div>
+  <div class="col-lg-2">
+    <a href="#" class="btn btn-default stat-item">
+        <i class="fa fa-arrow-right icon"></i>
+    </a>
+  </div>
+</div>
+          </div>
+      </div>
+    </div>
+  </div>
+<div id="comments" class=" col-lg-12">
+    <div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-white post panel-shadow">
+          <div class="row col-lg-12">
+            <div class="post-heading col-lg-8">
+                <div class="pull-left image">
+                    <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                </div>
+                <div class="pull-left meta">
+                    <div class="title h5">
+                        <a href="#"><b>Ryan Haywood</b></a>
+                        made a post.
                     </div>
+                    <h6 class="text-muted time">1 minute ago</h6>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-white post panel-shadow">
-                    <div class="post-heading">
-                        <div class="pull-left image">
-                            <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar"
-                                 alt="user profile image">
-                        </div>
-                        <div class="pull-left meta">
-                            <div class="title h5">
-                                <a href="#"><b>Ryan Haywood</b></a>
-                                made a post.
-                            </div>
-                            <h6 class="text-muted time">1 minute ago</h6>
-                        </div>
-                    </div>
-                    <div class="post-description">
-                        <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css
-                            hmtl js framework. Codes for developers and web designers</p>
-                        <div class="stats">
-                            <a href="#" class="btn btn-default stat-item">
-                                <i class="fa fa-thumbs-up icon"></i>2
-                            </a>
-                            <a href="#" class="btn btn-default stat-item">
-                                <i class="fa fa-thumbs-down icon"></i>12
-                            </a>
+            <div class="stats pull-right col-lg-4 post-heading">
+                <a href="#" class="btn btn-default stat-item">
+                    <i class="fa fa-thumbs-up icon"></i>2
+                </a>
+                <a href="#" class="btn btn-default stat-item">
+                    <i class="fa fa-thumbs-down icon"></i>12
+                </a>
 
-                        </div>
-                    </div>
-                </div>
+            </div>
+          </div>
+            <div class="post-description">
+                <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
+
             </div>
         </div>
     </div>
+  </div>
+  <div class="row">
+  <div class="col-lg-12">
+      <div class="panel panel-white post panel-shadow">
+        <div class="row col-lg-12">
+          <div class="post-heading col-lg-8">
+              <div class="pull-left image">
+                  <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+              </div>
+              <div class="pull-left meta">
+                  <div class="title h5">
+                      <a href="#"><b>Ryan Haywood</b></a>
+                      made a post.
+                  </div>
+                  <h6 class="text-muted time">1 minute ago</h6>
+              </div>
+          </div>
+          <div class="stats pull-right col-lg-4 post-heading">
+              <a href="#" class="btn btn-default stat-item">
+                  <i class="fa fa-thumbs-up icon"></i>2
+              </a>
+              <a href="#" class="btn btn-default stat-item">
+                  <i class="fa fa-thumbs-down icon"></i>12
+              </a>
+
+          </div>
+        </div>
+          <div class="post-description">
+              <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
+
+          </div>
+      </div>
+  </div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+    <div class="panel panel-white post panel-shadow">
+      <div class="row col-lg-12">
+        <div class="post-heading col-lg-8">
+            <div class="pull-left image">
+                <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+            </div>
+            <div class="pull-left meta">
+                <div class="title h5">
+                    <a href="#"><b>Ryan Haywood</b></a>
+                    made a post.
+                </div>
+                <h6 class="text-muted time">1 minute ago</h6>
+            </div>
+        </div>
+        <div class="stats pull-right col-lg-4 post-heading">
+            <a href="#" class="btn btn-default stat-item">
+                <i class="fa fa-thumbs-up icon"></i>2
+            </a>
+            <a href="#" class="btn btn-default stat-item">
+                <i class="fa fa-thumbs-down icon"></i>12
+            </a>
+
+        </div>
+      </div>
+        <div class="post-description">
+            <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
+
+        </div>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+    <div class="panel panel-white post panel-shadow">
+      <div class="row col-lg-12">
+        <div class="post-heading col-lg-8">
+            <div class="pull-left image">
+                <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+            </div>
+            <div class="pull-left meta">
+                <div class="title h5">
+                    <a href="#"><b>Ryan Haywood</b></a>
+                    made a post.
+                </div>
+                <h6 class="text-muted time">1 minute ago</h6>
+            </div>
+        </div>
+        <div class="stats pull-right col-lg-4 post-heading">
+            <a href="#" class="btn btn-default stat-item">
+                <i class="fa fa-thumbs-up icon"></i>2
+            </a>
+            <a href="#" class="btn btn-default stat-item">
+                <i class="fa fa-thumbs-down icon"></i>12
+            </a>
+
+        </div>
+      </div>
+        <div class="post-description">
+            <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
+
+        </div>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+    <div class="panel panel-white post panel-shadow">
+      <div class="row col-lg-12">
+        <div class="post-heading col-lg-8">
+            <div class="pull-left image">
+                <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+            </div>
+            <div class="pull-left meta">
+                <div class="title h5">
+                    <a href="#"><b>Ryan Haywood</b></a>
+                    made a post.
+                </div>
+                <h6 class="text-muted time">1 minute ago</h6>
+            </div>
+        </div>
+        <div class="stats pull-right col-lg-4 post-heading">
+            <a href="#" class="btn btn-default stat-item">
+                <i class="fa fa-thumbs-up icon"></i>2
+            </a>
+            <a href="#" class="btn btn-default stat-item">
+                <i class="fa fa-thumbs-down icon"></i>12
+            </a>
+
+        </div>
+      </div>
+        <div class="post-description">
+            <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
 </div>
 </body>
 </html>
