@@ -26,11 +26,11 @@ $(function () {
   //
   // Asynchronous download PDF
   //
-  PDFJS.getDocument(url).then(function getPdfHelloWorld(pdf) {
+  PDFJS.getDocument(url).then(function getPdf(pdf) {
     //
     // Fetch the first page
     //
-    pdf.getPage(10).then(function getPageHelloWorld(page) {
+    pdf.getPage(10).then(function getPage(page) {
       var scale = 1;
       var viewport = page.getViewport(scale);
       //
@@ -38,7 +38,7 @@ $(function () {
       //
       var canvas = document.getElementById('the-canvas');
       var context = canvas.getContext('2d');
-      canvas.height = window.innerHeight;
+      canvas.height = window.innerHeight; //viewport.height;
       canvas.width = viewport.width;
       //
       // Render PDF page into canvas context
