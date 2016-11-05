@@ -103,11 +103,14 @@
   margin-left: 50px;
 }
 #comments{
-
   overflow-y: scroll;
   height: 750px;
 }
 html, body{
    height: 100%;
    min-height: 100%;
+}
+#page_version_bar
+{
+  background-color: #3f3f3f;
 }
