@@ -23,31 +23,36 @@ $(function () {
   //
   PDFJS.workerSrc = './js/pdf.worker.js';
 
-  //
-  // Asynchronous download PDF
-  //
-  PDFJS.getDocument(url).then(function getPdf(pdf) {
+
+  function renderPDF(url, pageNum) {
     //
-    // Fetch the first page
+    // Asynchronous download PDF
     //
-    pdf.getPage(10).then(function getPage(page) {
-      var scale = 1;
-      var viewport = page.getViewport(scale);
+    PDFJS.getDocument(url).then(function getPdf(pdf) {
       //
-      // Prepare canvas using PDF page dimensions
+      // Fetch the first page
       //
-      var canvas = document.getElementById('the-canvas');
-      var context = canvas.getContext('2d');
-      canvas.height = window.innerHeight; //viewport.height;
-      canvas.width = viewport.width;
-      //
-      // Render PDF page into canvas context
-      //
-      var renderContext = {
-        canvasContext: context,
-        viewport: viewport
-      };
-      page.render(renderContext);
+      pdf.getPage(pageNum).then(function getPage(page) {
+        var scale = 1;
+        var viewport = page.getViewport(scale);
+        //
+        // Prepare canvas using PDF page dimensions
+        //
+        var canvas = document.getElementById('the-canvas');
+        var context = canvas.getContext('2d');
+        canvas.height = window.innerHeight; //viewport.height;
+        canvas.width = viewport.width;
+        //
+        // Render PDF page into canvas context
+        //
+        var renderContext = {
+          canvasContext: context,
+          viewport: viewport
+        };
+        page.render(renderContext);
+      });
     });
-  });
+  }
+
+  renderPDF(url, 1);
 });
