@@ -110,7 +110,7 @@
 }
 #comments {
     overflow-y: scroll;
-    height: 750px;
+    height: 80vh;
 }
 /*
 html, body{
