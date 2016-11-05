@@ -1,6 +1,6 @@
 node:
     image: node:7
-    command: node /usr/src/app/index.js
+    command: node /usr/src/app/app.js
     volumes:
         - .:/usr/src/app
     links:
