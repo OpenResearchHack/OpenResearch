@@ -107,7 +107,12 @@
   overflow-y: scroll;
   height: 750px;
 }
+/*
 html, body{
    height: 100%;
    min-height: 100%;
 }
+*/
+
+/* Canvas PDF */
+#the-canvas { border: 1px solid black }
