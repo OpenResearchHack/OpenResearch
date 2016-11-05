@@ -9,7 +9,7 @@ $(function () {
   // If absolute URL from the remote server is provided, configure the CORS
   // header on that server.
   //
-  var url = '../example_media.pdf';
+  var url = './example_media.pdf';
 
   //
   // Disable workers to avoid yet another cross-origin issue (workers need
