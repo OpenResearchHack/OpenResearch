@@ -72,6 +72,7 @@ $(function () {
   }
 
   function getComment(id){
+    console.log('Get comment with id'+id);
     $.ajax({
             url: '/api/v1/comment/' + id,
             type: "GET",
