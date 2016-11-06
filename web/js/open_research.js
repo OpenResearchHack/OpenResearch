@@ -37,8 +37,8 @@ $(function () {
           var pageNumMenuItem = $('<li id="' + i + '" href="#">Page ' + Number(i+1) + '</li>');
           pageNumMenuItem.bind("click", function() {
             console.log('url, pageNum', url, this.id);
-            window.location.assign(window.location.hostname + window.location.pathname
-              + "&pdf=&page=" + this.id);
+            window.location.assign(window.location.pathname
+              + "?pdf=" + url + "&page=" + this.id);
           });
           $(pageNumMenuItem).appendTo($('.dropdown-menu'));
         }
