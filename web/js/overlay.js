@@ -30,8 +30,8 @@ function handleUserClickOnOverlay(event){
 		+  " clientX: " + event.clientX 
 		+  " clientY: " + event.clientY);
 	// Find the percentage positioning within the overlay div, rather than the absolute pixels
-	var clientPercentX = (event.clientX - $("#overlayDiv").offset().left) / $("#overlayDiv").width() * 100.0 - 2;
-	var clientPercentY = (event.clientY - $("#overlayDiv").offset().top) / $("#overlayDiv").height() * 100.0 - 2;
+	var clientPercentX = (event.clientX - $("#overlayDiv").offset().left) / $("#overlayDiv").width() * 100.0 - 4;
+	var clientPercentY = (event.clientY - $("#overlayDiv").offset().top) / $("#overlayDiv").height() * 100.0 - 4;
 	console.log('Noticed a user clicked on overlay at ' 
 		+  " clientPercentX: " + clientPercentX 
 		+  " clientPercentY: " + clientPercentY);
