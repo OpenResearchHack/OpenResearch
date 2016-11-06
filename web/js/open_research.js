@@ -133,5 +133,9 @@ $(function () {
     });
   }
 
+  /* Form methods */
+  $('#postCommentInput').bind("click", postComment);
+  $('#getCommentsInput').bind("click", getComments);
+
   renderPDF(url, 1);
 });
