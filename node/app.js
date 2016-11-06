@@ -1,14 +1,13 @@
-const http = require('http');
+var express = require('express');
+var wagner = require('wagner-core');
 
-const hostname = '0.0.0.0';
-const port = 3000;
+require('./models')(wagner);
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
+var app = express();
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+//wagner.invoke(require('./auth'), { app: app });
+
+app.use('/api/v1', require('./api')(wagner));
+
+app.listen(3000);
+console.log('Listening on port 3000!');
