@@ -1,30 +1,22 @@
 $(function () {
-  console.log('START');
-  /*
-  PDFJS.getDocument('../example_media.pdf').then(function (pdfDocument) {
-    console.log('Number of pages: ' + pdfDocument.numPages);
-  });
-  */
-  //
-  // If absolute URL from the remote server is provided, configure the CORS
-  // header on that server.
-  //
-  var url = './example_media.pdf';
-
-  //
-  // Disable workers to avoid yet another cross-origin issue (workers need
-  // the URL of the script to be loaded, and dynamically loading a cross-origin
-  // script does not work).
-  //
-  // PDFJS.disableWorker = true;
+  PDFJS.disableWorker = true;
 
   //
   // The workerSrc property shall be specified.
   //
   PDFJS.workerSrc = './js/pdf.worker.js';
 
+  var pageNum = getParameterByName('page') ? Number(getParameterByName('page')) : 1;
+  var url = getParameterByName('pdf') ? decodeURI(getParameterByName('pdf')) : './example_media.pdf';
 
   function renderPDF(url, pageNum) {
+    //
+    // Prepare canvas using PDF page dimensions
+    //
+    $('#the-canvas').remove();
+    var newCanvas = $('<canvas id="the-canvas"></canvas>');
+    $(newCanvas).appendTo($('#pdfOuter'));
+
     //
     // Asynchronous download PDF
     //
@@ -35,13 +27,21 @@ $(function () {
       pdf.getPage(pageNum).then(function getPage(page) {
         var scale = 1;
         var viewport = page.getViewport(scale);
-        //
-        // Prepare canvas using PDF page dimensions
-        //
+
         var canvas = document.getElementById('the-canvas');
         var context = canvas.getContext('2d');
-        canvas.height = window.innerHeight; //viewport.height;
+        canvas.height = viewport.height; // window.innerHeight; //viewport.height;
         canvas.width = viewport.width;
+
+        for(var i = 0; i < pdf.numPages; i++) {
+          var pageNumMenuItem = $('<li id="' + i + '" href="#">Page ' + Number(i+1) + '</li>');
+          pageNumMenuItem.bind("click", function() {
+            console.log('url, pageNum', url, this.id);
+            window.location.assign(window.location.hostname + window.location.pathname
+              + "&pdf=&page=" + this.id);
+          });
+          $(pageNumMenuItem).appendTo($('.dropdown-menu'));
+        }
         //
         // Render PDF page into canvas context
         //
@@ -49,10 +49,23 @@ $(function () {
           canvasContext: context,
           viewport: viewport
         };
+
         page.render(renderContext);
       });
     });
   }
 
-  renderPDF(url, 1);
+  function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+
+  renderPDF(url, pageNum);
 });
