@@ -276,7 +276,7 @@ header .header-content .header-content-inner {
   }
 }
 section {
-  padding: 100px 0;
+  padding: 50px 0;
 }
 section h2 {
   font-size: 40px;
@@ -684,4 +684,19 @@ html, body{
 #page_version_bar
 {
   background-color: #3f3f3f;
+}
+
+
+
+h3.section-subheading {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.highlight-text {
+  background-color: rgba(255, 192, 0, 0.34)
+}
+  
+#blockchain .text-primary {
+    color: #f7931a;
 }
