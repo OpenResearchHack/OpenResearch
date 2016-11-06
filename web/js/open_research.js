@@ -54,10 +54,82 @@ $(function () {
     });
   }
 
+  function getUser(){
+    $.ajax({
+            url: "/api/v1/user",
+            type: "GET",
+            contentType: 'application/json; charset=utf-8',
+            success: function(resultData) {
+                //here is your json.
+                  // process it
+
+            },
+            error : function(jqXHR, textStatus, errorThrown) {
+            },
+
+            timeout: 120000,
+        });
+  }
+
+  function getComment(id){
+    $.ajax({
+            url: '/api/v1/comment/' + id,
+            type: "GET",
+            contentType: 'application/json; charset=utf-8',
+            success: function(resultData){
+                //here is your json.
+                  // process it
+                  alert(JSON.stringify(resultData));
+            },
+            error : function(jqXHR, textStatus, errorThrown) {
+              alert('error');
+            },
+            timeout: 120000,
+        });
+  };
+
+  function getComments()
+  {
+    console.log('getComments...')
+    $.ajax({
+            url: "/api/v1/comment",
+            type: "GET",
+            contentType: 'application/json; charset=utf-8',
+            success: function(resultData){
+                //here is your json.
+                  // process it
+                  alert(JSON.stringify(resultData));
+            },
+            error : function(jqXHR, textStatus, errorThrown) {
+              alert('error');
+            },
+            timeout: 120000,
+        });
+  }
+
   // Post a comment
   function postComment(){
-    alert('what should i send you?');
-    document.getElementById('postForm').submit();
+    var comment = document.postForm.getElementById('comment-body').value;
+    var postData = {
+      author: "",
+      paper: "",
+      content: comment,
+      voteplus: null,
+      voteminus: null
+    };
+
+    $.ajax({
+        url: '/api/v1/comment',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(postData),
+        success: function(response){
+          alert(JSON.stringify(response));
+        },
+        error: function(){
+            alert('error');
+        }
+    });
   }
 
   renderPDF(url, 1);
