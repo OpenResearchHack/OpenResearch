@@ -1,241 +1,259 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <script
-    src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous">
-  </script>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <script src="js/pdf.js"></script>
-    <script src="js/open_research.js"></script>
-    <script src="js/overlay.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/open_research.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenResearch</title>
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="vendor/device-mockups/device-mockups.min.css">
+    <link rel="stylesheet" href="vendor/flags/flag-icon.min.css"> 
+
+    <!-- Theme CSS -->
+    <link href="css/open_research.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
-<body>
-<div class="container">
-    <div id="pdfOuter" class="col-lg-6">
-        <canvas id="the-canvas"/>
-    </div>
 
-  <div id="right_section" class="col-lg-6">
-    <div class="col-lg-12">
-    <div id="page_version_bar" class="row panel panel-white post panel-shadow" style="padding:15px">
-      <div class="col-lg-12">
-        <div class="col-lg-4">
+<body id="page-top">
 
-          <div class="btn-group">
-  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Document Version<span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    ...
-  </ul>
-</div>
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">
+                <span>OpenResearch</span>
+            </a>
         </div>
-          <div class="col-lg-8">
-            <div class="col-lg-12">
-            <div class="col-lg-2">
-              <a href="#" class="btn btn-default stat-item">
-                  <i class="fa fa-arrow-left icon"></i>
-              </a>
-            </div>
-            <div class="col-lg-8">
-    <button class="col-lg-offset-3 btn btn-default btn-sm dropdown-toggle" style="margin-top:2%;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Page Number <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-      ...
-    </ul>
-  </div>
 
-  <div class="col-lg-2">
-    <a href="#" class="btn btn-default stat-item">
-        <i class="fa fa-arrow-right icon"></i>
-    </a>
-  </div>
-</div>
-          </div>
-      </div>
-    </div>
-  </div>
-<div id="comments" class=" col-lg-12">
-    <div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-white post panel-shadow">
-          <div class="row col-lg-12">
-            <div class="post-heading col-lg-8">
-                <div class="pull-left image">
-                    <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
-                </div>
-                <div class="pull-left meta">
-                    <div class="title h5">
-                        <a href="#"><b>Ryan Haywood</b></a>
-                        made a post.
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="page-scroll" href="#features">Features</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#blockchain">Blockchain</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#team">Team</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#community">Participate</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="header-content">
+                    <div class="header-content-inner">
+                        
+                        <h1>Start now with<br> <span class="bigger">OpenResearch</span></h1>
+
+                        <a href="/login" class="btn btn-outline btn-xl page-scroll">Login</a>
+                        <a href="/register" class="btn btn-outline btn-xl page-scroll">Sign Up</a>
                     </div>
-                    <h6 class="text-muted time">1 minute ago</h6>
                 </div>
             </div>
-            <div class="stats pull-right col-lg-4 post-heading">
-                <a href="#" class="btn btn-default stat-item">
-                    <i class="fa fa-thumbs-up icon"></i>2
-                </a>
-                <a href="#" class="btn btn-default stat-item">
-                    <i class="fa fa-thumbs-down icon"></i>12
-                </a>
-
-            </div>
-          </div>
-            <div class="post-description">
-                <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
-
-            </div>
         </div>
-    </div>
-  </div>
-  <div class="row">
-  <div class="col-lg-12">
-      <div class="panel panel-white post panel-shadow">
-        <div class="row col-lg-12">
-          <div class="post-heading col-lg-8">
-              <div class="pull-left image">
-                  <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
-              </div>
-              <div class="pull-left meta">
-                  <div class="title h5">
-                      <a href="#"><b>Ryan Haywood</b></a>
-                      made a post.
-                  </div>
-                  <h6 class="text-muted time">1 minute ago</h6>
-              </div>
-          </div>
-          <div class="stats pull-right col-lg-4 post-heading">
-              <a href="#" class="btn btn-default stat-item">
-                  <i class="fa fa-thumbs-up icon"></i>2
-              </a>
-              <a href="#" class="btn btn-default stat-item">
-                  <i class="fa fa-thumbs-down icon"></i>12
-              </a>
+    </header>
 
-          </div>
-        </div>
-          <div class="post-description">
-              <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
-
-          </div>
-      </div>
-  </div>
-</div>
-<div class="row">
-<div class="col-lg-12">
-    <div class="panel panel-white post panel-shadow">
-      <div class="row col-lg-12">
-        <div class="post-heading col-lg-8">
-            <div class="pull-left image">
-                <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
-            </div>
-            <div class="pull-left meta">
-                <div class="title h5">
-                    <a href="#"><b>Ryan Haywood</b></a>
-                    made a post.
+    <section id="features" class="blue small-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Features</h2>
+                    <h3 class="section-subheading text-muted">What OpenResearch change for research papers.</h3>
                 </div>
-                <h6 class="text-muted time">1 minute ago</h6>
             </div>
-        </div>
-        <div class="stats pull-right col-lg-4 post-heading">
-            <a href="#" class="btn btn-default stat-item">
-                <i class="fa fa-thumbs-up icon"></i>2
-            </a>
-            <a href="#" class="btn btn-default stat-item">
-                <i class="fa fa-thumbs-down icon"></i>12
-            </a>
-
-        </div>
-      </div>
-        <div class="post-description">
-            <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
-
-        </div>
-    </div>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-12">
-    <div class="panel panel-white post panel-shadow">
-      <div class="row col-lg-12">
-        <div class="post-heading col-lg-8">
-            <div class="pull-left image">
-                <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
-            </div>
-            <div class="pull-left meta">
-                <div class="title h5">
-                    <a href="#"><b>Ryan Haywood</b></a>
-                    made a post.
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">E-Commerce</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
-                <h6 class="text-muted time">1 minute ago</h6>
-            </div>
-        </div>
-        <div class="stats pull-right col-lg-4 post-heading">
-            <a href="#" class="btn btn-default stat-item">
-                <i class="fa fa-thumbs-up icon"></i>2
-            </a>
-            <a href="#" class="btn btn-default stat-item">
-                <i class="fa fa-thumbs-down icon"></i>12
-            </a>
-
-        </div>
-      </div>
-        <div class="post-description">
-            <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
-
-        </div>
-    </div>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-12">
-    <div class="panel panel-white post panel-shadow">
-      <div class="row col-lg-12">
-        <div class="post-heading col-lg-8">
-            <div class="pull-left image">
-                <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
-            </div>
-            <div class="pull-left meta">
-                <div class="title h5">
-                    <a href="#"><b>Ryan Haywood</b></a>
-                    made a post.
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Responsive Design</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
-                <h6 class="text-muted time">1 minute ago</h6>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Web Security</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
             </div>
         </div>
-        <div class="stats pull-right col-lg-4 post-heading">
-            <a href="#" class="btn btn-default stat-item">
-                <i class="fa fa-thumbs-up icon"></i>2
-            </a>
-            <a href="#" class="btn btn-default stat-item">
-                <i class="fa fa-thumbs-down icon"></i>12
-            </a>
+    </section>
 
+    <section id="blockchain" class="orange small-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Powered by Bitcoin blockchain</h2>
+                    <h3 class="section-subheading text-muted">For immutable data and censorship resistance.</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">E-Commerce</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Responsive Design</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Web Security</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+            </div>
         </div>
-      </div>
-        <div class="post-description">
-            <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
+    </section>
 
+    <!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Our Amazing Team</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Kay Garland</h4>
+                        <p class="text-muted">Lead Designer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Larry Parker</h4>
+                        <p class="text-muted">Lead Marketer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Diana Pertersen</h4>
+                        <p class="text-muted">Lead Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-</div>
-</div>
+    </section>
 
+    <section id="community" class="orange small-section">
+        <div class="container">
+            <h2 class="section-heading col-sm-offset-1">Features</h2>
+        </div>
+        <hr>
+        
+    </section>
 
-</div>
+    <footer>
+        <span class="branding">
+            <img src="img/small_logo.png">
+            <span>OpenResearch Project</span>
+        </span>
+        <span>&copy; 2016 OpenResearch Project.</span>
+    </footer>
 
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
 
-</div>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/index.js"></script>
 </body>
+
 </html>
