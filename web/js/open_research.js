@@ -111,23 +111,23 @@ $(function () {
   // Post a comment
   function postComment(){
     var comment = $('#comment-body').val();
-    alert(comment)
+    console.log('comment to post: ' + comment)
     var postData = {
       author: "581f212d2540a400017cb3cf",
       paper: "581f254e2b103c0001720524",
       content: comment
     };
-    alert(JSON.stringify(postData))
+    console.log(JSON.stringify(postData))
     $.ajax({
         url: '/api/v1/comment',
         type: 'POST',
         contentType: 'application/json',
         data: postData,
         success: function(response){
-          alert(JSON.stringify(response));
+          console.log(JSON.stringify(response));
         },
         error: function(){
-            alert('error');
+            console.log('error');
         }
     });
   }
