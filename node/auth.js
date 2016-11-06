@@ -3,12 +3,12 @@ function setupAuth(User, app) {
   var LocalStrategy = require('passport-local').Strategy;
 
   passport.serializeUser(function(user, done) {
-    done(null, user.username);
+    done(null, user._id);
   });
 
   passport.deserializeUser(function(id, done) {
     User.
-      findOne({ username : username }).
+      findOne({ _id : id }).
       exec(done);
   });
 
