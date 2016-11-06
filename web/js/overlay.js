@@ -30,8 +30,8 @@ function handleUserClickOnOverlay(event){
 		+  " clientX: " + event.clientX 
 		+  " clientY: " + event.clientY);
 	// Find the percentage positioning within the overlay div, rather than the absolute pixels
-	var clientPercentX = (event.clientX - $("#overlayDiv").offset().left) / $("#overlayDiv").width() * 100.0 - 4;
-	var clientPercentY = (event.clientY - $("#overlayDiv").offset().top) / $("#overlayDiv").height() * 100.0 - 4;
+	var clientPercentX = (event.clientX - $("#overlayDiv").offset().left) / $("#overlayDiv").width() * 100.0 - 3;
+	var clientPercentY = (event.clientY - $("#overlayDiv").offset().top) / $("#overlayDiv").height() * 100.0 - 3;
 	console.log('Noticed a user clicked on overlay at ' 
 		+  " clientPercentX: " + clientPercentX 
 		+  " clientPercentY: " + clientPercentY);
@@ -65,14 +65,19 @@ function handleUserClickOnOverlay(event){
 function drawArrowOnCanvas(hotspotId, commentId) {
 	console.log('Drawing arrow on canvas for ' + hotspotId);
 	var hotspotJq = $('#' + hotspotId);
+	var hotspotJqParent = $(hotspotJq).parent();
+	var arrowCanvasJq = $('#arrowCanvas');
 	console.log($('#' + hotspotId));
-	console.log(hotspotJq.position().top + ' and left: ' + hotspotJq.position().left);
+	console.log('top' + hotspotJq.position().top + ' and left: ' + hotspotJq.position().left);
+	console.log('arrowCanvasJq height' + arrowCanvasJq.height() + ' and width: ' + arrowCanvasJq.width());
+	var xMultip = hotspotJqParent.width() / document.getElementById('arrowCanvas').width;
+	var yMultip = hotspotJqParent.height() / document.getElementById('arrowCanvas').height;
 	
 	var ctx = document.getElementById('arrowCanvas').getContext('2d');
-	var startPointX = 0;
-	var startPointY = 0;
-	var endPointX = hotspotJq.position().left; // * $("#pdfOuter").width; // Multiplying by width as left was reporting back in percentage
-	var endPointY = hotspotJq.position().top;//* $("#pdfOuter").height;
+	var startPointX = document.getElementById('arrowCanvas').width;
+	var startPointY = 40;
+	var endPointX = hotspotJq.position().left / xMultip; // * $("#pdfOuter").width; // Multiplying by width as left was reporting back in percentage
+	var endPointY = hotspotJq.position().top / yMultip;//* $("#pdfOuter").height;
 	var quadPointX = 35;
 	var quadPointY = 70;
 
