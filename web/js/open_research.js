@@ -110,20 +110,19 @@ $(function () {
 
   // Post a comment
   function postComment(){
-    var comment = document.postForm.getElementById('comment-body').value;
+    var comment = $('#comment-body').val();
+    alert(comment)
     var postData = {
-      author: "",
-      paper: "",
-      content: comment,
-      voteplus: null,
-      voteminus: null
+      author: "581f212d2540a400017cb3cf",
+      paper: "581f254e2b103c0001720524",
+      content: comment
     };
-
+    alert(JSON.stringify(postData))
     $.ajax({
         url: '/api/v1/comment',
         type: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify(postData),
+        data: postData,
         success: function(response){
           alert(JSON.stringify(response));
         },
