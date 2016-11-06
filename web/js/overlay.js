@@ -49,6 +49,8 @@ function handleUserClickOnOverlay(event){
 		'font-size': '24px',
 		'border-radius': '10px'
 	});
+	$("#comment_box").show();
+
 	// Draw an arrow to it
 	//drawArrowOnCanvas(hotspotId, 'commentId');	// TODO: replace commentId here
 }
