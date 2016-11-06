@@ -1,5 +1,8 @@
 console.log('overlay code has loaded');
 var arrayHotspots = [];
+
+$("#comment_box").show();
+
 // On document ready, run the initialisation of pdf overlay code
 $(function() {
 	// Add an overlay Div
