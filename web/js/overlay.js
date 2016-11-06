@@ -1,7 +1,7 @@
 console.log('overlay code has loaded');
 var arrayHotspots = [];
 
-$("#comment_box").show();
+
 
 // On document ready, run the initialisation of pdf overlay code
 $(function() {
@@ -20,6 +20,8 @@ $(function() {
 		background: 'rgba(220, 220, 220, 0.1)'
 	});
 	$("#overlayDiv").click(handleUserClickOnOverlay);
+	
+	$("#comment_box").hide();
 });
 
 
@@ -28,8 +30,8 @@ function handleUserClickOnOverlay(event){
 		+  " clientX: " + event.clientX 
 		+  " clientY: " + event.clientY);
 	// Find the percentage positioning within the overlay div, rather than the absolute pixels
-	var clientPercentX = (event.clientX - $("#overlayDiv").offset().left) / $("#overlayDiv").width() * 100.0;
-	var clientPercentY = (event.clientY - $("#overlayDiv").offset().top) / $("#overlayDiv").height() * 100.0;
+	var clientPercentX = (event.clientX - $("#overlayDiv").offset().left) / $("#overlayDiv").width() * 100.0 - 2;
+	var clientPercentY = (event.clientY - $("#overlayDiv").offset().top) / $("#overlayDiv").height() * 100.0 - 2;
 	console.log('Noticed a user clicked on overlay at ' 
 		+  " clientPercentX: " + clientPercentX 
 		+  " clientPercentY: " + clientPercentY);
