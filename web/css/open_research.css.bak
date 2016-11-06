@@ -1,7 +1,6 @@
 
 #pdfOuter {
 	position: relative;
-	padding: 0px;
 	height: 100vh;
 }
 
@@ -110,7 +109,7 @@
 }
 #comments {
     overflow-y: scroll;
-    height: 80vh;
+    height: 750px;
 }
 /*
 html, body{

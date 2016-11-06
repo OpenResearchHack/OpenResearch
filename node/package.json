@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "mongoose": "4.6.6",
+    "express": "4.14.0",
+    "express-session": "1.14.2",
+    "http-status": "0.2.3",
+    "superagent": "2.3.0",
+    "wagner-core": "0.2.0",
+    "underscore": "1.8.3",
+    "body-parser": "1.15.2",
+    "passport": "0.3.2",
+    "passport-local": "1.0.0"
+  },
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-mocha": "3.0.1",
+    "mocha": "3.1.2"
+  },
+  "scripts": {
+    "test": "mocha test.js",
+    "watch": "gulp watch"
+  }
+}

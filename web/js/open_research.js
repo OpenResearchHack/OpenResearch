@@ -55,6 +55,13 @@ $(function () {
     });
   }
 
+  // Post a comment
+  function postComment(){
+    alert('what should i send you?');
+    document.getElementById('postForm').submit();
+  }
+
+  renderPDF(url, 1);
   function getParameterByName(name, url) {
     if (!url) {
       url = window.location.href;
